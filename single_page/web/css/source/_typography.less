@@ -1,0 +1,19 @@
+& when (@media-common = true) {
+    .lib-font-face(
+        @family-name: @font-family-name__base,
+        @font-path: '@{baseDir}fonts/Lato/Lato-Regular',
+        @font-weight: 400,
+        @font-style: normal
+    );
+}
+
+@font-family-font-awesome: 'Font Awesome 5 Free';
+
+@primary__color: #111;
+
+h1 {
+    &.page-title {
+        font-size: @h1__font-size-desktop;
+        font-weight: 700;
+    }
+}

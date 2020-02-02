@@ -1,0 +1,45 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * Top menu for store
+ *
+ * @var $block \Magento\Theme\Block\Html\Topmenu
+ */
+
+$columnsLimit = $block->getColumnsLimit() ?: 0;
+$_menuHtml = $block->getHtml('level-top', 'submenu', $columnsLimit)
+?>
+<nav class="navigation" data-action="navigation">
+
+    <i class="menu-submenu fas fa-bars"></i>
+
+    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <li class="level0"><a href="<?= $block->escapeUrl($block->getUrl('')) ?>"><?= __('Home') ?></a></li>
+        <?= /* @noEscape */ $_menuHtml?>
+        <?= $block->getChildHtml() ?>
+        <li class="level0"><a href="#"><?= __('Lookbook') ?></a></li>
+        <li class="level0"><a href="#"><?= __('About') ?></a></li>
+        <li class="level0"><a href="#"><?= __('Blog') ?></a></li>
+    </ul>
+
+    <div class="nav-extra-links">
+        <a class="wishlist-link" href="<?= $block->escapeUrl($block->getUrl('')) ?>wishlist/"><i class="far fa-heart"></i></a>
+        <i class="search-link fas fa-search"></i>
+    </div>
+</nav>
+
+<script type="text/x-magento-init">
+    {
+        ".navigation": {
+            "js/showHideBtn": {
+                "elementsBtns": [".menu-submenu", ".search-link"],
+                "elementsParents": ".nav-sections-item-content",
+                "elementsToHide": [".header.links", ".block-search"]
+            }
+        }
+    }
+</script>

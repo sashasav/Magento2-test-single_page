@@ -1,0 +1,109 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    input[type="number"] {
+        border-color: @nav-sections-border;
+        opacity: .6;
+        height: 35px;
+        padding: 0 13px;
+        font-size: 1.3rem;
+        font-weight: 300;
+    }
+
+    .product-add-form {
+        .product-options-wrapper {
+            margin-bottom: 29px;
+
+            .field.qty {
+                .control {
+                    width: 70px;
+                    position: relative;
+
+                    .qty-btn {
+                        position: absolute;
+                        width: 50%;
+                        height: ~'calc(50% + 1px)';
+                        right: 0;
+                        top: 0;
+                        background-color: transparent;
+                        opacity: .6;
+
+                        &:hover {
+                            background-color: @nav-sections-border;
+                        }
+
+                        &.btn-plus {
+                            border-color: transparent transparent transparent @nav-sections-border;
+                        }
+
+                        &.btn-minus {
+                            top: auto;
+                            bottom: 0;
+                            border-color: @nav-sections-border transparent transparent @nav-sections-border;
+                        }
+
+                        .fas {
+                            color: @color-gray80;
+                        }
+
+                        .fa-caret-up::before,
+                        .fa-caret-down::before {
+                            position: absolute;
+                            top: 0;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+                    }
+                }
+            }
+        }
+
+        .fieldset > .field > .label {
+            margin-bottom: 15px;
+            letter-spacing: .7px;
+        }
+    }
+
+    .clear-selection {
+        background-color: transparent;
+        border: none;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        font-weight: 400;
+        text-decoration: underline;
+        padding: 9px 0;
+    }
+
+    button,
+    a.action.primary {
+        border-radius: unset;
+    }
+
+    button {
+        &:focus,
+        &:active,
+        &:hover {
+            border: none;
+        }
+    }
+
+    .block.review-add,
+    .review-form {
+        position: relative;
+    }
+
+    .review-add-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: @primary__color;
+            color: @color-white;
+        }
+    }
+}

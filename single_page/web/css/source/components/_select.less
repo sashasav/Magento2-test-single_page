@@ -1,0 +1,54 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .fieldset {
+        .product-options-wrapper & {
+            margin-bottom: 8px;
+        }
+
+        > .field {
+            > .label {
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+            &.required {
+                > .label {
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    select {
+        &,
+        &:disabled {
+            border-color: @nav-sections-border;
+            opacity: .6;
+            font-size: 1.3rem;
+            font-weight: 300;
+            width: 168px;
+            height: 35px;
+            padding-left: 12px;
+            letter-spacing: .5px;
+        }
+    }
+}
+
+//
+//  Desktop > 1024
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .product-options-wrapper {
+        .fieldset {
+            .lib-vendor-prefix-display(flex);
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+    }
+}

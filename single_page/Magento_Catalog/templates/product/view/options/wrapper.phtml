@@ -1,0 +1,47 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block Magento\Catalog\Block\Product\View */
+?>
+<?php
+$required = '';
+if ($block->hasRequiredOptions()) {
+    $required = ' data-hasrequired="' . $block->escapeHtmlAttr(__('* Required Fields')) . '"';
+}
+?>
+<div class="product-options-wrapper" id="product-options-wrapper"<?= /* @noEscape */ $required ?>>
+    <div class="fieldset" tabindex="0">
+        <?= $block->getChildHtml('', true) ?>
+        <?php if ($block->shouldRenderQuantity()) :?>
+        <div class="field qty">
+            <label class="label" for="qty"><span><?= $block->escapeHtml(__('Qty')) ?></span></label>
+            <div class="control">
+                <input type="number"
+                       name="qty"
+                       id="qty"
+                       min="0"
+                       value="<?= $block->getProductDefaultQty() * 1 ?>"
+                       title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                       class="input-text qty"
+                       data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                />
+            </div>
+        </div>
+        <?php endif; ?>
+    </div>
+    <button class="clear-selection"><?= __('Clear Selection') ?></button>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#qty": {
+            "js/qtyBtn": {}
+        },
+        ".fieldset": {
+            "js/clearSelection": {}
+        }
+    }
+</script>

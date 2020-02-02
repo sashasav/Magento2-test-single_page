@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+<!--    move breadcrumbs    -->
+        <move element="breadcrumbs" destination="product.info.main" before="-" />
+
+<!--    move product title    -->
+        <move element="page.main.title" destination="product.info.main" after="breadcrumbs"/>
+
+<!--    move short description    -->
+        <move element="product.info.overview" destination="product.info.main" after="product.info.price" />
+
+<!--    remove compare button    -->
+        <referenceBlock name="view.addto.compare" remove="true" />
+
+<!--    share links    -->
+        <referenceContainer name="product.info.main">
+            <block name="product.share.links" template="Magento_Catalog::sharelinks.phtml"/>
+        </referenceContainer>
+
+<!--    move attributes    -->
+        <move element="product.attributes" destination="product.info.price" after="-" />
+
+<!--    move reviews    -->
+        <move element="reviews.tab" destination="content.aside" />
+
+<!--    move add to favorites    -->
+        <move element="view.addto.wishlist" destination="product.info.options.wrapper.bottom" />
+    </body>
+</page>

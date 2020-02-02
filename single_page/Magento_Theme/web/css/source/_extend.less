@@ -1,0 +1,299 @@
+//
+//  Theme variables
+//  _____________________________________________
+
+@header-panel__background-color: #d9e1e6;
+@header-panel__text-color: #868f93;
+@nav-sections-border: #e1e1e1;
+@copyright-color: #b5b5b5;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    body {
+        a,
+        .alink,
+        a:visited,
+        .alink:visited {
+            color: @primary__color;
+        }
+    }
+
+    .greet.welcome {
+        list-style: none;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1rem;
+    }
+
+    button:not(.primary) {
+        box-shadow: none;
+    }
+
+    .welcome-x-btn {
+        background: transparent;
+        border-color: transparent;
+        color: @header-panel__text-color;
+        padding: 7px 14px;
+
+        &:hover {
+            border-color: currentColor;
+            background: transparent;
+        }
+    }
+
+    .header.content {
+        .logo {
+            float: unset;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            text-align: center;
+            text-align: -moz-center;
+            text-align: -webkit-center;
+        }
+    }
+
+    .page-header {
+        .switcher {
+            strong {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .view-en,
+    .view-ua,
+    .view-ru {
+        span,
+        a {
+            padding-left: 25px;
+            position: relative;
+
+            &::before {
+                position: absolute;
+                content: '';
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 16px;
+                height: 11px;
+                background-size: cover;
+                background-position: center;
+            }
+        }
+    }
+
+    .view-en {
+        span,
+        a {
+            &::before {
+                background-image: url("../images/flag_usa.png");
+            }
+        }
+    }
+
+    .view-ua {
+        span,
+        a {
+            &::before {
+                background-image: url("../images/flag_ukr.png");
+            }
+        }
+    }
+
+    .view-ru {
+        span,
+        a {
+            &::before {
+                background-image: url("../images/flag_rus.png");
+            }
+        }
+    }
+
+    .switcher-language {
+        color: @color-gray-darken3;
+        font-size: 1.2rem;
+    }
+
+    .copyright {
+        border-top: 1px solid @nav-sections-border;
+        font-size: 1.3rem;
+        color: @copyright-color;
+        padding: 26px 10px;
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .header.content {
+        .switcher-language {
+            display: none;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-header {
+        .panel {
+            &.wrapper {
+                border-bottom-color: transparent;
+            }
+
+            &.header {
+                padding-bottom: 7px;
+                padding-top: 8px;
+            }
+        }
+
+        .switcher {
+            float: left;
+            margin-left: 47px;
+            padding-top: 13px;
+
+            .options {
+                ul.dropdown {
+                    min-width: 120px;
+                    text-align: right;
+                    right: auto;
+                    left: 0;
+
+                    &::before {
+                        right: auto;
+                        left: 10px;
+                    }
+
+                    &::after {
+                        right: auto;
+                        left: 9px;
+                    }
+
+                    li {
+                        padding-left: 10px;
+                    }
+                }
+
+                .action.toggle:after {
+                    content: '\e607';
+                    color: @color-gray60;
+                    padding-left: 8px;
+                }
+            }
+        }
+    }
+
+    .header {
+        &.panel {
+            position: relative;
+
+            > .header.links {
+                display: none;
+            }
+        }
+
+        &.content {
+            padding: 27px 65px 27px 20px;
+
+            .logo {
+                padding-top: 10px;
+            }
+        }
+    }
+
+    .welcome-x-btn {
+        position: absolute;
+        top: 0;
+        right: 50px;
+    }
+
+    .nav-sections {
+        position: relative;
+        border: 1px solid @nav-sections-border;
+        margin-bottom: 44px;
+    }
+
+    .nav-sections-item-content {
+        position: relative;
+        max-width: 1150px;
+        margin: 0 auto;
+
+        .header.links {
+            position: absolute;
+            top: 100%;
+            left: 20px;
+            display: block;
+            z-index: 4;
+            background-color: @color-white;
+            border: 1px solid @color-gray-light2;
+            padding: 10px;
+
+            > li {
+                list-style: none;
+
+                > a {
+                    &,
+                    &:visited {
+                        color: @primary__color;
+                    }
+                }
+            }
+        }
+
+        .navigation {
+            text-align: center;
+            text-align: -moz-center;
+            text-align: -webkit-center;
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 1.2rem;
+            padding: 11px 0 10px;
+
+            .level0 {
+                margin: 0 48px 0 0;
+
+                > .level-top {
+                    padding: 0 18px 0 3px;
+                }
+
+                &.active {
+                    > .level-top {
+                        border: none;
+                    }
+                }
+
+                &.parent {
+                    > .level-top {
+                        > .ui-menu-icon:after {
+                            content: '\e607';
+                            color: @color-gray60;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                &.has-active > .level-top {
+                    border: none;
+                }
+            }
+        }
+
+        &:nth-child(4) {
+            .header.links {
+                display: none;
+            }
+        }
+    }
+}

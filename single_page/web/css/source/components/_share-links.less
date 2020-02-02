@@ -1,0 +1,162 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .share-wrapper {
+        border-top: 1px solid @nav-sections-border;
+        border-bottom: 1px solid @nav-sections-border;
+        text-align: right;
+        font-size: 1.1rem;
+        font-weight: 300;
+        padding: 16px 0 15px;
+
+        .share-links-wrapper {
+            > * {
+                display: inline-block;
+                border-radius: 2px;
+            }
+        }
+
+        .share-span {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            float: left;
+            padding-top: 1px;
+        }
+
+        .facebook-like {
+            background-image: linear-gradient(to top, @facebook-like-color-1 0%, @facebook-like-color-2 100%);
+            color: @color-white;
+            text-shadow: 0 -1px 0 rgba(1, 1, 1, 0.4);
+            margin-right: 2px;
+            padding: 3px 7px 2px 3px;
+
+            .fab {
+                margin-right: 5px;
+                font-size: 1.4rem;
+            }
+        }
+
+        .facebook-share {
+            background-image: linear-gradient(to top, @facebook-share-color-1 0%, @facebook-share-color-2 100%);
+            color: @color-white;
+            text-shadow: 0 -1px 0 rgba(1, 1, 1, 0.35);
+            padding: 3px 7px 2px 6px;
+        }
+
+        .share-label {
+            border: 1px solid @share-label-border;
+            position: relative;
+            opacity: .44;
+            color: @share-label-color;
+
+            &::before {
+                position: absolute;
+                content: '';
+                width: 4px;
+                height: 4px;
+                top: 50%;
+                left: -3px;
+                transform: translateY(-50%) rotate(45deg);
+                border: 1px solid @share-label-border;
+                border-color: transparent transparent @share-label-border @share-label-border;
+                background-color: @color-white;
+                z-index: -1;
+            }
+
+            &.facebook {
+                margin: 0 0 0 4px;
+                padding: 2px 1px 1px 3px;
+            }
+
+            &.twitter {
+                color: @color-gray80;
+                border-color: @color-gray-light2;
+                margin: 0 1px 0 2px;
+                padding: 2px 3px 1px;
+
+                &::before {
+                    border-color: transparent transparent @color-gray-light2 @color-gray-light2;
+                }
+            }
+
+            &.pinterest {
+                border-color: @share-pin-label-border @share-pin-label-border @share-pin-label-border transparent;
+                color: @share-pin-label-color;
+                padding: 1px 4px 2px 2px;
+                margin-left: 5px;
+
+                &::before {
+                    border-color: transparent transparent @share-pin-label-border @share-pin-label-border;
+                    width: 13px;
+                    height: 13px;
+                    left: -6px;
+                    background-color: transparent;
+                }
+            }
+        }
+
+        .share-twitter {
+            color: @color-gray20;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+            border: 1px solid @color-gray80;
+            background-image: linear-gradient(to top, @twitter-share-color-1 0%, @color-white 100%);
+            padding: 2px 6px 1px 4px;
+
+            .fab {
+                color: @fab-twitter-color;
+                margin-right: 2px;
+                font-size: 1.4rem;
+            }
+        }
+
+        .share-pin {
+            border: 1px solid @share-pin-border;
+            background-image: linear-gradient(to top, @pin-share-color-1 0%, @color-white 100%);
+            padding: 2px 5px 1px;
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .share-links-wrapper {
+        display: block;
+
+        &:not(:last-child) {
+            margin-bottom: 5px;
+        }
+    }
+
+}
+
+//
+//  Mobile and Tablet < 1024
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .share-links-wrapper {
+        &:not(:last-child) {
+            margin-bottom: 5px;
+        }
+    }
+}
+
+//
+//  Desktop > 1024
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+    .share-links-wrapper {
+        display: inline-block;
+
+        &:not(:last-child) {
+            margin: 0 17px 0 0;
+        }
+    }
+}

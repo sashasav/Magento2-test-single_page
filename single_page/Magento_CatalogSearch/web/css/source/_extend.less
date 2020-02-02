@@ -1,0 +1,47 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  _____________________________________________
+
+@autocomplete__background-color: @color-white;
+@autocomplete__border: 1px solid @form-element-input__border-color;
+@autocomplete-item__border: 1px solid @color-gray90;
+@autocomplete-item__hover__color: @color-gray91;
+@autocomplete-item-amount__color: @color-gray60;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .wishlist-link {
+        display: inline-block;
+    }
+
+    .block-search {
+        position: absolute;
+        right: 0;
+        top: 100%;
+        display: block;
+    }
+}

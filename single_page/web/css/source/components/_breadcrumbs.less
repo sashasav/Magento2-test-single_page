@@ -1,0 +1,39 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .product-info-main {
+        .breadcrumbs {
+            padding: 12px 0 0 0;
+            margin-bottom: 37px;
+
+            a {
+                &,
+                &:visited {
+                    color: @color-gray-darken3;
+                }
+
+                .breadcrumbs-back-link {
+                    color: @page-secondary-color;
+                }
+            }
+
+            .item:not(:last-child):after {
+                display: none;
+            }
+
+            .items {
+                font-size: 1.4rem;
+
+                .item {
+                    display: none;
+
+                    &:nth-last-child(2) {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+}

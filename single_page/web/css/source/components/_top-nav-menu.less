@@ -1,0 +1,59 @@
+& when (@media-common = true) {
+    .menu-submenu {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        z-index: 4;
+        cursor: pointer;
+        padding: 2px;
+        font-size: 1.5rem;
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .menu-submenu.fas {
+        display: none;
+    }
+
+    .nav-extra-links {
+        > * {
+            display: inline-block;
+            padding: 15px;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .navigation {
+        .nav-extra-links {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            font-size: 1.6rem;
+
+            > * {
+                padding: 5px 4px 5px 12px;
+                cursor: pointer;
+
+                &:hover {
+                    color: @page-secondary-color;
+                }
+
+                &:not(:last-child) {
+                    border-right: 1px dotted currentColor;
+                    padding-right: 15px;
+                }
+            }
+        }
+    }
+}
