@@ -16,6 +16,10 @@ define([
                     $(el).val($(el).find('option:first').val());
                 });
             });
+
+            fieldsToClear.each(function (i, el) {
+                $(el).find('option:first').text('Select ' + $(el).closest('.field.configurable').find('label span').text());
+            });
         }
     });
 

@@ -22,7 +22,7 @@ $_attributes = $block->decorateArray($block->getAllowAttributes());
                         data-validate="{required:true}"
                         id="attribute<?= $block->escapeHtmlAttr($_attribute->getAttributeId()) ?>"
                         class="super-attribute-select">
-                    <option value=""><?= $block->escapeHtml(__('Select')) ?> <?= $block->escapeHtml($_attribute->getProductAttribute()->getStoreLabel()) ?></option>
+                    <option value="default"><?= $block->escapeHtml(__('Select')) ?> <?= $block->escapeHtml($_attribute->getProductAttribute()->getStoreLabel()) ?></option>
                 </select>
             </div>
         </div>
