@@ -19,6 +19,10 @@
         .alink:visited {
             color: @primary__color;
         }
+
+        * {
+            transition: all .3s;
+        }
     }
 
     .greet.welcome {
@@ -34,12 +38,12 @@
 
     .welcome-x-btn {
         background: transparent;
-        border-color: transparent;
+        border: none;
         color: @header-panel__text-color;
         padding: 7px 14px;
 
         &:hover {
-            border-color: currentColor;
+            border: none;
             background: transparent;
         }
     }
